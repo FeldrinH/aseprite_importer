@@ -52,9 +52,6 @@ static func generate_animations(import_data : AsepriteImportData, selected_tags 
 	var tracks := {
 		"region" : {
 			path = (sprite_relative_path + ":region_rect"),
-		},
-		"offset" : {
-			path = (sprite_relative_path + ":offset")
 		}
 	}
 
@@ -120,25 +117,25 @@ static func generate_animations(import_data : AsepriteImportData, selected_tags 
 			animation.track_insert_key(tracks.region.idx, time, region)
 
 			# Get the center of the frame in the original size
-			var source_size : Dictionary = frame.sourceSize
-			var source_center_x : float = source_size.w / 2
-			var source_center_y : float = source_size.h / 2
+			#var source_size : Dictionary = frame.sourceSize
+			#var source_center_x : float = source_size.w / 2
+			#var source_center_y : float = source_size.h / 2
 
 			# Get the center of the trimmed frame in the spritesheet
-			var trim_rect : Dictionary = frame.spriteSourceSize
-			var trim_rect_center_x : float = trim_rect.x + (trim_rect.w / 2)
-			var trim_rect_center_y : float = trim_rect.y + (trim_rect.h / 2)
+			#var trim_rect : Dictionary = frame.spriteSourceSize
+			#var trim_rect_center_x : float = trim_rect.x + (trim_rect.w / 2)
+			#var trim_rect_center_y : float = trim_rect.y + (trim_rect.h / 2)
 
 			# Calculate the offset between the trimmed frame center and original frame center
-			var offset_x := trim_rect_center_x - source_center_x
-			var offset_y := trim_rect_center_y - source_center_y
+			#var offset_x := trim_rect_center_x - source_center_x
+			#var offset_y := trim_rect_center_y - source_center_y
 
 			# Invert the vertical offset when the selected sprite is a Sprite3D
-			if is_sprite3d:
-				offset_y *= -1
+			#if is_sprite3d:
+			#	offset_y *= -1
 
 			# Insert the new key for the offset track
-			animation.track_insert_key(tracks.offset.idx, time, Vector2(offset_x, offset_y))
+			#animation.track_insert_key(tracks.offset.idx, time, Vector2(offset_x, offset_y))
 
 			# Add up the current frame's duration for the next key position
 			time += frame.duration / 1000
