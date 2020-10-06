@@ -83,6 +83,8 @@ static func generate_animations(import_data : AsepriteImportData, selected_tags 
 				# Create a new_track
 				track.idx = animation.add_track(Animation.TYPE_VALUE)
 				animation.track_set_path(track.idx, track.path)
+				animation.value_track_set_update_mode(track.idx, Animation.UPDATE_DISCRETE)
+				animation.track_set_interpolation_type(track.idx, Animation.INTERPOLATION_NEAREST)
 			else:
 				# Remove all existing keys from the track
 				for key_idx in range(animation.track_get_key_count(track.idx)):
